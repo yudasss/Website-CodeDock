@@ -1,0 +1,131 @@
+<!--
+Nama file       : bab1.html
+Tanggal ngoding : 15 Desember 2025 (Pembaruan)
+Kelas           : TI-1A
+Kelompok        : 1 (Mandiri)
+Anggota         : [Nama Mahasiswa Placeholder]
+Deskripsi       : Konten tutorial Bab 1 (Pengenalan HTML) dengan struktur baru.
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 1: PENDAHULUAN WEB DEVELOPMENT | Tutorial Web</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+    <script src="../js/navigation.js" defer></script><!-- BARU: Memuat Navigasi Bab -->
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">CodeDock</a>
+            
+            <!-- Aksi untuk Mobile (Mode & Login) -->
+            <div class="mobile-action-bar">
+                <button id="mode-toggle-btn" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="../login.html" class="user-action-btn" id="user-action-link" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+
+            <nav>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">Tentang</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Materi <i class="fas fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <!-- NEW: Menu Navigasi dengan Judul Baru -->
+                            <li><a href="bab1.html">BAB 1 - PENDAHULUAN WEB DEVELOPMENT</a></li>
+                            <li><a href="bab2.html">BAB 2 - FONDASI HTML5</a></li>
+                            <li><a href="bab3.html">BAB 3 - STYLING MODERN DENGAN TAILWIND CSS</a></li>
+                            <li><a href="bab4.html">BAB 4 - JAVASCRIPT ES6+: DASAR HINGGA INTERAKTIVITAS</a></li>
+                            <li><a href="bab5.html">BAB 5 - INTEGRASI HTML5, TAILWIND CSS, JAVASCRIPT</a></li>
+                            <li><a href="bab6.html">BAB 6 - BEST PRACTICES & TREN MODERN</a></li>
+                            <li><a href="bab7.html">BAB 7 - PROYEK MINI</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Search, Mode, & User actions (untuk desktop) -->
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input-desktop" placeholder="Cari Konten..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button id="mode-toggle-btn-desktop" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="../login.html" class="user-action-btn" id="user-action-link-desktop" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" data-page="materi" data-chapter-id="bab1">
+        <div class="container">
+            <div class="card">
+                <button id="mark-complete-btn" class="btn-primary" style="float: right; margin-top: 0.5rem; background-color: var(--success-color);"><i class="fas fa-check"></i> Tandai Bab Ini Sebagai Selesai</button>
+
+                <h1>BAB 1 - PENDAHULUAN WEB DEVELOPMENT</h1>
+                <p style="font-style: italic; color: var(--secondary-color);">Memahami arsitektur web, peran browser, client-side vs server-side, dan alat kerja dasar.</p>
+
+                <h2>Sub-bab 1.1: Arsitektur Web & Client-Server</h2>
+                <p>Web development adalah proses membangun dan memelihara website. Pemahaman dasar dimulai dari bagaimana browser (Client) berkomunikasi dengan Server (Host).</p>
+                <ul>
+                    <li><strong>Client-Side:</strong> Kode yang dieksekusi di browser pengguna (HTML, CSS, JavaScript).</li>
+                    <li><strong>Server-Side:</strong> Kode yang dieksekusi di server (PHP, Python, Node.js, dll.).</li>
+                </ul>
+
+                <button class="code-toggle">Tampilkan Kode</button>
+                <pre class="code-block hidden"><code>// Contoh Kode Sisi Klien (JavaScript)
+document.addEventListener('click', () => {
+    console.log('Interaksi ditangani oleh browser.');
+});</code></pre>
+
+                <h2>Sub-bab 1.2: Tools Wajib</h2>
+                <p>Beberapa elemen penting yang harus dimiliki setiap pengembang web:</p>
+                <ul>
+                    <li><strong>Browser Modern:</strong> Chrome, Firefox, Edge (untuk testing).</li>
+                    <li><strong>Code Editor:</strong> VS Code atau Sublime Text.</li>
+                    <li><strong>DevTools:</strong> Fitur inspeksi bawaan di browser untuk debugging.</li>
+                </ul>
+
+                <button class="code-toggle">Tampilkan Kode</button>
+                <pre class="code-block hidden"><code>&lt;!-- Pastikan struktur dasar HTML selalu benar --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Judul Halaman&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Halo Dunia!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            
+            <!-- Tautan Lanjut ke Bab 2 (Dihapus dan digantikan oleh navigation.js) -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CodeDock | Proyek UAS Pemrograman Web 1</p>
+        </div>
+    </footer>
+
+</body>
+</html>

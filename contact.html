@@ -1,0 +1,150 @@
+<!--
+Nama file       : contact.html
+Tanggal ngoding : 15 Desember 2025 (Pembaruan)
+Kelas           : TI-1A
+Kelompok        : 1 (Mandiri)
+Anggota         : [Nama Mahasiswa Placeholder]
+Deskripsi       : Halaman Kontak berisi form, video perkenalan anggota kelompok (dengan almamater) dan pembagian tugas.
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami | Tutorial Web HTML, CSS, JS</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">CodeDock</a>
+            
+            <!-- Aksi untuk Mobile (Mode & Login) -->
+            <div class="mobile-action-bar">
+                <button id="mode-toggle-btn" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+
+            <nav>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Tentang</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Materi <i class="fas fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <!-- NEW: Menu Navigasi dengan Judul Baru -->
+                            <li><a href="materi/bab1.html">BAB 1 - PENDAHULUAN WEB DEVELOPMENT</a></li>
+                            <li><a href="materi/bab2.html">BAB 2 - FONDASI HTML5</a></li>
+                            <li><a href="materi/bab3.html">BAB 3 - STYLING MODERN DENGAN TAILWIND CSS</a></li>
+                            <li><a href="materi/bab4.html">BAB 4 - JAVASCRIPT ES6+: DASAR HINGGA INTERAKTIVITAS</a></li>
+                            <li><a href="materi/bab5.html">BAB 5 - INTEGRASI HTML5, TAILWIND CSS, JAVASCRIPT</a></li>
+                            <li><a href="materi/bab6.html">BAB 6 - BEST PRACTICES & TREN MODERN</a></li>
+                            <li><a href="materi/bab7.html">BAB 7 - PROYEK MINI</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Search, Mode, & User actions (untuk desktop) -->
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input-desktop" placeholder="Cari Konten..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button id="mode-toggle-btn-desktop" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link-desktop" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" data-page="contact">
+        <div class="container">
+            <div class="card">
+                <h1>Hubungi Kami</h1>
+
+                <p>Punya pertanyaan, kritik, atau saran? Silakan isi formulir di bawah ini.</p>
+
+                <div id="form-status" style="display: none;"></div>
+
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="nama"><i class="fas fa-user-tag"></i> Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="email" name="email" placeholder="contoh@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pesan"><i class="fas fa-comment-alt"></i> Pesan</label>
+                        <textarea id="pesan" name="pesan" placeholder="Tuliskan pesan Anda..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+                </form>
+
+                <!-- NEW: MAP SECTION -->
+                <div class="map-container" style="margin-top: 3rem;">
+                    <h2 style="border-left-color: var(--primary-color);">Lokasi Kampus Kami</h2>
+                    <p style="margin-bottom: 1.5rem;">Kami berbasis di kampus utama. Anda dapat menemukan lokasi kami di peta berikut:</p>
+                    <div class="map-wrapper">
+                        <!-- Menggunakan embed iframe Google Maps placeholder (Kampus Unpam) -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d763.3889869369161!2d106.69189612660564!3d-6.346551139764031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e5a6e26dc3cd%3A0xccd6344b8021119d!2sUniversitas%20Pamulang%20Kampus%202%20(UNPAM%20Viktor)!5e0!3m2!1sid!2sid!4v1765770402647!5m2!1sid!2sid"  
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Peta Lokasi Kampus">
+                        </iframe>
+                    </div>
+                </div>
+                <!-- END NEW: MAP SECTION -->
+
+                <div class="video-container" style="margin-top: 3rem;">
+                    <h2 style="border-left-color: var(--primary-color);">Video Perkenalan Kelompok & Pembagian Tugas</h2>
+                    <p>Tonton video di bawah ini untuk mengenal anggota kelompok dan penjelasan rinci mengenai pembagian tugas dalam proyek UAS ini.</p>
+                    
+                    <!-- Catatan Penting: Pastikan video ada di folder video/ dan semua mahasiswa mengenakan almamater. -->
+                    <div class="almamater-note" style="border-radius: 8px;">
+                        <i class="fas fa-info-circle"></i> <strong>PERHATIAN:</strong> Video Anggota Kelompok.
+                    </div>
+
+                    <div class="video-wrapper">
+                        <!-- Ganti path src dengan file video Anda, misal: video/perkenalan.mp4 -->
+                        <video id="intro-video" controls poster="https://placehold.co/1280x720/7986cb/ffffff?text=Video+Perkenalan+Kelompok">
+                            <source src="video/perkenalan.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video HTML5.
+                        </video>
+                    </div>
+                    <small style="display: block; text-align: center; margin-top: 1rem; color: var(--secondary-color);">Placeholder gambar thumbnail video digunakan.</small>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CodeDock | Proyek UAS Pemrograman Web 1</p>
+        </div>
+    </footer>
+
+</body>
+</html>

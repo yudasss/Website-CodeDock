@@ -1,0 +1,118 @@
+<!--
+Nama file       : register.html
+Tanggal ngoding : 15 Desember 2025 (Baru)
+Deskripsi       : Halaman untuk pendaftaran/pembuatan akun baru.
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun | Tutorial Web</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">CodeDock</a>
+            
+            <!-- Aksi untuk Mobile (Mode & Login) -->
+            <div class="mobile-action-bar">
+                <button id="mode-toggle-btn" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+
+            <nav>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Tentang</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Materi <i class="fas fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="materi/bab1.html">Bab 1: Pengenalan HTML</a></li>
+                            <li><a href="materi/bab2.html">Bab 2: CSS</a></li>
+                            <li><a href="materi/bab3.html">Bab 3: JavaScript</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+
+            <!-- Search, Mode, & User actions (untuk desktop) -->
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input-desktop" placeholder="Cari Konten..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button id="mode-toggle-btn-desktop" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link-desktop" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" data-page="register">
+        <div class="container">
+            <!-- Form Register berpusat di tengah dengan desain modern -->
+            <div class="card login-card-custom" style="max-width: 450px; margin: 2rem auto;">
+                <i class="fas fa-user-plus" style="font-size: 3.5rem; color: var(--success-color); margin-bottom: 0.5rem;"></i>
+                <h1>Buat Akun Baru</h1>
+                <p style="margin-bottom: 2rem;">Daftar untuk menyimpan progres belajar Anda dan mengakses fitur penuh.</p>
+
+                <!-- Social Login Section -->
+                <div class="social-login-section">
+                    <button class="social-login-btn google-btn"><i class="fab fa-google"></i> Daftar dengan Google</button>
+                    <button class="social-login-btn github-btn"><i class="fab fa-github"></i> Daftar dengan GitHub</button>
+                </div>
+
+                <div class="divider">ATAU</div>
+                
+                <div id="form-status" style="display: none;"></div>
+
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="reg-username"><i class="fas fa-user"></i> Nama Pengguna</label>
+                        <input type="text" id="reg-username" name="username" placeholder="Nama Anda" required minlength="3">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email"><i class="fas fa-at"></i> Email</label>
+                        <input type="email" id="reg-email" name="email" placeholder="contoh@web.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password"><i class="fas fa-key"></i> Password</label>
+                        <input type="password" id="reg-password" name="password" placeholder="Minimal 6 karakter" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn-submit" style="background-color: var(--success-color);"><i class="fas fa-user-plus"></i> Daftar</button>
+                </form>
+                
+                <!-- Opsi Login -->
+                <p class="register-link-text">
+                    Sudah punya akun? <a href="login.html" class="register-link" style="color: var(--primary-color);">Masuk di sini</a>
+                </p>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CodeDock | Proyek UAS Pemrograman Web 1</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!--
+Nama file       : login.html
+Tanggal ngoding : 15 Desember 2025 (Pembaruan Desain)
+Deskripsi       : Halaman untuk login pengguna dengan desain menarik, social login, dan tautan daftar.
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Tutorial Web</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">CodeDock</a>
+            
+            <!-- Aksi untuk Mobile (Mode & Login) -->
+            <div class="mobile-action-bar">
+                <button id="mode-toggle-btn" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+
+            <nav>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Tentang</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Materi <i class="fas fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="materi/bab1.html">Bab 1: Pengenalan HTML</a></li>
+                            <li><a href="materi/bab2.html">Bab 2: CSS</a></li>
+                            <li><a href="materi/bab3.html">Bab 3: JavaScript</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+
+            <!-- Search, Mode, & User actions (untuk desktop) -->
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input-desktop" placeholder="Cari Konten..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button id="mode-toggle-btn-desktop" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link-desktop" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" data-page="login">
+        <div class="container">
+            <!-- Form Login berpusat di tengah dengan desain baru -->
+            <div class="card login-card-custom" style="max-width: 450px; margin: 2rem auto;">
+                <i class="fas fa-lock" style="font-size: 3.5rem; color: var(--primary-color); margin-bottom: 0.5rem;"></i>
+                <h1>Masuk ke CodeDock</h1>
+                <p style="margin-bottom: 2rem;">Silakan masuk untuk melanjutkan progres belajar Anda.</p>
+
+                <!-- Social Login Section -->
+                <div class="social-login-section">
+                    <button class="social-login-btn google-btn"><i class="fab fa-google"></i> Login dengan Google</button>
+                    <button class="social-login-btn github-btn"><i class="fab fa-github"></i> Login dengan GitHub</button>
+                </div>
+
+                <div class="divider">ATAU</div>
+                
+                <div id="form-status" style="display: none;"></div>
+
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-at"></i> Email</label>
+                        <input type="email" id="email" name="email" placeholder="contoh@web.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-key"></i> Password</label>
+                        <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
+                    </div>
+                    <button type="submit" class="btn-submit"><i class="fas fa-sign-in-alt"></i> Masuk</button>
+                </form>
+                
+                <!-- Opsi Daftar/Buat Akun -->
+                <p class="register-link-text">
+                    Belum punya akun? <a href="register.html" class="register-link">Daftar Sekarang</a>
+                </p>
+
+                <!-- Demo Info -->
+                <p class="demo-info-text">
+                    Untuk demo: Email: <code>mhs@web-tutorial.com</code> | Password: <code>web123</code>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CodeDock | Proyek UAS Pemrograman Web 1</p>
+        </div>
+    </footer>
+
+</body>
+</html>

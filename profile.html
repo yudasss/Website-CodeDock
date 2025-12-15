@@ -1,0 +1,119 @@
+<!--
+Nama file       : profile.html
+Tanggal ngoding : 15 Desember 2025 (Baru)
+Deskripsi       : Halaman Profil pengguna dengan detail dan form untuk mengubah username.
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya | Tutorial Web</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">CodeDock</a>
+            
+            <!-- Aksi untuk Mobile (Mode & Login) -->
+            <div class="mobile-action-bar">
+                <button id="mode-toggle-btn" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Profil</span>
+                </a>
+            </div>
+
+            <nav>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Tentang</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Materi <i class="fas fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="materi/bab1.html">BAB 1 - PENDAHULUAN WEB DEVELOPMENT</a></li>
+                            <li><a href="materi/bab2.html">BAB 2 - FONDASI HTML5</a></li>
+                            <li><a href="materi/bab3.html">BAB 3 - STYLING MODERN DENGAN TAILWIND CSS</a></li>
+                            <li><a href="materi/bab4.html">BAB 4 - JAVASCRIPT ES6+: DASAR HINGGA INTERAKTIVITAS</a></li>
+                            <li><a href="materi/bab5.html">BAB 5 - INTEGRASI HTML5, TAILWIND CSS, JAVASCRIPT</a></li>
+                            <li><a href="materi/bab6.html">BAB 6 - BEST PRACTICES & TREN MODERN</a></li>
+                            <li><a href="materi/bab7.html">BAB 7 - PROYEK MINI</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+
+            <!-- Search, Mode, & User actions (untuk desktop) -->
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input-desktop" placeholder="Cari Konten..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button id="mode-toggle-btn-desktop" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="profile.html" class="user-action-btn" id="user-action-link-desktop" title="Lihat Profil">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Profil</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" id="profile-page">
+        <div class="container">
+            <div class="card" style="max-width: 700px; margin: 2rem auto;">
+                
+                <h1 style="text-align: center;">Detail Profil</h1>
+
+                <div class="profile-info">
+                    <img id="profile-pic" src="https://placehold.co/120x120/3f51b5/ffffff?text=YP" alt="Foto Profil" class="profile-pic">
+                    <h2 id="profile-username" style="border: none; margin-top: 1rem;">[Nama Pengguna]</h2>
+                    <p style="color: var(--secondary-color);">Status: <span id="profile-status">Aktif</span></p>
+                </div>
+                
+                <div class="profile-section">
+                    <h3>Informasi Akun</h3>
+                    <p><strong>Email:</strong> <span id="profile-email">N/A</span></p>
+                    <p><strong>NIM:</strong> <span id="profile-nim">N/A</span></p>
+                </div>
+                
+                <div class="profile-section">
+                    <h3>Ubah Nama Pengguna</h3>
+                    <p>Anda dapat memperbarui nama tampilan Anda di sini. Nama ini akan terlihat di seluruh aplikasi.</p>
+                    
+                    <div id="profile-update-status" style="display: none; padding: 0.8rem; border-radius: 8px; margin-bottom: 1rem; color: white;"></div>
+
+                    <form id="update-profile-form">
+                        <div class="form-group">
+                            <label for="edit-username"><i class="fas fa-user-edit"></i> Nama Pengguna Baru</label>
+                            <input type="text" id="edit-username" name="username" required>
+                        </div>
+                        <button type="submit" class="btn-submit" style="font-size: 1rem;"><i class="fas fa-save"></i> Simpan Perubahan</button>
+                    </form>
+                </div>
+
+                <button id="logout-btn" class="btn-primary" style="background-color: #dc3545; display: block; width: 100%; margin-top: 2rem;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CodeDock | Proyek UAS Pemrograman Web 1</p>
+        </div>
+    </footer>
+
+</body>
+</html>

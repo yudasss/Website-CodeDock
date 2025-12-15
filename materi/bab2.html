@@ -1,0 +1,135 @@
+<!--
+Nama file       : bab2.html
+Tanggal ngoding : 15 Desember 2025 (Pembaruan)
+Kelas           : TI-1A
+Kelompok        : 1 (Mandiri)
+Anggota         : [Nama Mahasiswa Placeholder]
+Deskripsi       : Konten tutorial Bab 2 (CSS) dengan struktur baru.
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 2: FONDASI HTML5 | Tutorial Web</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+    <script src="../js/navigation.js" defer></script><!-- BARU: Memuat Navigasi Bab -->
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">CodeDock</a>
+            
+            <!-- Aksi untuk Mobile (Mode & Login) -->
+            <div class="mobile-action-bar">
+                <button id="mode-toggle-btn" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="../login.html" class="user-action-btn" id="user-action-link" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+
+            <nav>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">Tentang</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Materi <i class="fas fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <!-- NEW: Menu Navigasi dengan Judul Baru -->
+                            <li><a href="bab1.html">BAB 1 - PENDAHULUAN WEB DEVELOPMENT</a></li>
+                            <li><a href="bab2.html">BAB 2 - FONDASI HTML5</a></li>
+                            <li><a href="bab3.html">BAB 3 - STYLING MODERN DENGAN TAILWIND CSS</a></li>
+                            <li><a href="bab4.html">BAB 4 - JAVASCRIPT ES6+: DASAR HINGGA INTERAKTIVITAS</a></li>
+                            <li><a href="bab5.html">BAB 5 - INTEGRASI HTML5, TAILWIND CSS, JAVASCRIPT</a></li>
+                            <li><a href="bab6.html">BAB 6 - BEST PRACTICES & TREN MODERN</a></li>
+                            <li><a href="bab7.html">BAB 7 - PROYEK MINI</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Search, Mode, & User actions (untuk desktop) -->
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input-desktop" placeholder="Cari Konten..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button id="mode-toggle-btn-desktop" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="../login.html" class="user-action-btn" id="user-action-link-desktop" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" data-page="materi" data-chapter-id="bab2">
+        <div class="container">
+            <div class="card">
+                <button id="mark-complete-btn" class="btn-primary" style="float: right; margin-top: 0.5rem; background-color: var(--success-color);"><i class="fas fa-check"></i> Tandai Bab Ini Sebagai Selesai</button>
+
+                <h1>BAB 2 - FONDASI HTML5</h1>
+                <p style="font-style: italic; color: var(--secondary-color);">Pelajari struktur dasar, semantik, dan elemen-elemen penting dari setiap halaman web modern.</p>
+
+                <h2>2.1 Struktur dan Elemen Semantik</h2>
+                <p>HTML5 bukan hanya tentang tag, tetapi juga tentang memberikan makna (semantik) pada konten Anda. Menggunakan tag semantik membuat kode lebih mudah dibaca oleh developer dan mesin pencari.</p>
+                <p>Elemen utama untuk tata letak modern meliputi:</p>
+                <ul>
+                    <li><code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>: Struktur halaman utama.</li>
+                    <li><code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>: Struktur konten spesifik.</li>
+                </ul>
+
+                <button class="code-toggle">Tampilkan Struktur Dasar</button>
+                <pre class="code-block hidden"><code>&lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;section&gt;...&lt;/section&gt;
+        &lt;/article&gt;
+        &lt;aside&gt;...&lt;/aside&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+
+                <h2>2.2 Interaksi Dasar: Media dan Form</h2>
+                <p>HTML5 mempermudah integrasi media dan interaksi pengguna melalui elemen form. Form adalah jembatan komunikasi antara pengguna dan server.</p>
+                <ul>
+                    <li>**Media:** Gunakan <code>&lt;video&gt;</code> dan <code>&lt;audio&gt;</code> dengan atribut `controls` untuk kontrol browser bawaan.</li>
+                    <li>**Form:** Gunakan atribut `type` yang spesifik (seperti `email`, `date`) pada `&lt;input&gt;` untuk validasi otomatis yang lebih baik di browser.</li>
+                </ul>
+                
+                <button class="code-toggle">Tampilkan Contoh Form</button>
+                <pre class="code-block hidden"><code>&lt;form action="/submit" method="post"&gt;
+    &lt;label for="userEmail"&gt;Email Anda:&lt;/label&gt;
+    &lt;input type="email" id="userEmail" required placeholder="alamat@domain.com"&gt;
+    
+    &lt;label for="submitDate"&gt;Tanggal Pengiriman:&lt;/label&gt;
+    &lt;input type="date" id="submitDate"&gt;
+    
+    &lt;button type="submit"&gt;Kirim Data&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+            
+            <!-- Tautan Lanjut ke Bab 3 (Dihapus dan digantikan oleh navigation.js) -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CodeDock | Proyek UAS Pemrograman Web 1</p>
+        </div>
+    </footer>
+
+</body>
+</html>

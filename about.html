@@ -1,0 +1,153 @@
+<!--
+Nama file       : about.html
+Tanggal ngoding : 15 Desember 2025 (Pembaruan)
+Kelas           : TI-1A
+Kelompok        : 1 (Mandiri)
+Anggota         : [Nama Mahasiswa Placeholder]
+Deskripsi       : Informasi tentang pembuat website dan tujuan tutorial, ditambah fitur baru.
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami | Tutorial Web HTML, CSS, JS</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">CodeDock</a>
+            
+            <!-- Aksi untuk Mobile (Mode & Login) -->
+            <div class="mobile-action-bar">
+                <button id="mode-toggle-btn" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+
+            <nav>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Tentang</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Materi <i class="fas fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <!-- NEW: Menu Navigasi dengan Judul Baru -->
+                            <li><a href="materi/bab1.html">BAB 1 - PENDAHULUAN WEB DEVELOPMENT</a></li>
+                            <li><a href="materi/bab2.html">BAB 2 - FONDASI HTML5</a></li>
+                            <li><a href="materi/bab3.html">BAB 3 - STYLING MODERN DENGAN TAILWIND CSS</a></li>
+                            <li><a href="materi/bab4.html">BAB 4 - JAVASCRIPT ES6+: DASAR HINGGA INTERAKTIVITAS</a></li>
+                            <li><a href="materi/bab5.html">BAB 5 - INTEGRASI HTML5, TAILWIND CSS, JAVASCRIPT</a></li>
+                            <li><a href="materi/bab6.html">BAB 6 - BEST PRACTICES & TREN MODERN</a></li>
+                            <li><a href="materi/bab7.html">BAB 7 - PROYEK MINI</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Search, Mode, & User actions (untuk desktop) -->
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input-desktop" placeholder="Cari Konten..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button id="mode-toggle-btn-desktop" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link-desktop" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" data-page="about">
+        <div class="container">
+            <div class="card">
+                <h1>Tentang Pembuat dan Tujuan Website</h1>
+
+                <h2>Tujuan Website</h2>
+                <p>Website CodeDock ini dibuat sebagai bagian dari pemenuhan Ujian Akhir Semester (UAS) mata kuliah Pemrograman Web 1. Tujuan utamanya adalah untuk mendemonstrasikan kemampuan mahasiswa dalam:</p>
+                <ul>
+                    <li>Membangun website statis yang fungsional dan terstruktur.</li>
+                    <li>Mengaplikasikan konsep Responsive Design menggunakan HTML dan CSS Media Queries.</li>
+                    <li>Menyediakan konten edukatif dalam format bab dan sub-bab.</li>
+                    <li>Mengimplementasikan interaktivitas sederhana menggunakan JavaScript.</li>
+                </ul>
+
+                <h2>Informasi Pembuat</h2>
+                <p>Proyek ini dikerjakan oleh Tim Kelompok 1 (Mandiri) yang terdiri dari:</p>
+                
+                <!-- CONTAINER PROFIL STACK VERTIKAL -->
+                <div class="profile-list-stack">
+                    
+                    <!-- 1. YUDA PRIMA (Ketua Kelompok / Core Dev) -->
+                    <div class="profile-card-about">
+                        <!-- Placeholder untuk Gambar Profil -->
+                        <div class="profile-avatar">
+                            <img src="https://placehold.co/100x100/3f51b5/ffffff?text=AA" alt="Foto Profil Yuda Prima" loading="lazy">
+                        </div>
+                        
+                        <div class="profile-details">
+                            <h3>Al Amin </h3>
+                            <p><strong>NIM:</strong> 231011400555</p>
+                            <p><strong>Kelas:</strong> 05TPLP017</p>
+                            <p><strong>Peran Utama:</strong> </p>
+                        </div>
+                    </div>
+
+                    <!-- 2. MAHASISWA B (Anggota 1) -->
+                    <div class="profile-card-about">
+                        <div class="profile-avatar">
+                            <img src="https://placehold.co/100x100/7986cb/3f51b5?text=AA" alt="Foto Profil Mahasiswa B" loading="lazy">
+                        </div>
+                        
+                        <div class="profile-details">
+                            <h3>Alif Ananda</h3>
+                            <p><strong>NIM:</strong> 231011400666</p>
+                            <p><strong>Kelas:</strong> 05TPLP017</p>
+                            <p><strong>Peran Utama:</strong> </p>
+                        </div>
+                    </div>
+
+                    <!-- 3. MAHASISWA C (Anggota 2) -->
+                    <div class="profile-card-about">
+                        <div class="profile-avatar">
+                            <img src="https://placehold.co/100x100/5c6bc0/ffffff?text=MC" alt="Foto Profil Mahasiswa C" loading="lazy">
+                        </div>
+                        
+                        <div class="profile-details">
+                            <h3>Yuda Prima</h3>
+                            <p><strong>NIM:</strong> 231011400727</p>
+                            <p><strong>Kelas:</strong> 05TPLP017</p>
+                            <p><strong>Peran Utama:</strong> </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END CONTAINER PROFIL STACK VERTIKAL -->
+
+                <p style="margin-top: 2rem; font-style: italic; text-align: center;">Detail lengkap mengenai pembagian tugas dan proyek ini dapat dilihat pada video perkenalan di halaman <a href="contact.html">Kontak</a>.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CodeDock | Proyek UAS Pemrograman Web 1</p>
+        </div>
+    </footer>
+
+</body>
+</html>

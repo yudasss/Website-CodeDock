@@ -1,0 +1,1309 @@
+/**
+ * Nama file       : style.css
+ * Tanggal ngoding : 15 Desember 2025 (Pembaruan)
+ * Deskripsi       : Styling utama untuk website tutorial (Elegan, Responsif, Dark Mode, Progres).
+ * Status          : DIOPTIMALKAN UNTUK RESPONSIFITAS PENUH (Desktop, Tablet, Smartphone).
+ */
+
+/* ==================================== */
+/* 1. RESET DAN FONT DASAR & VARIABEL */
+/* ==================================== */
+:root {
+    --primary-color: #3f51b5; /* Deep Indigo (Elegan) */
+    --secondary-color: #7986cb; /* Light Indigo */
+    --bg-page: #f9fbfd; /* Very Light Background */
+    --bg-card: #ffffff; /* Card White */
+    --text-main: #333333; /* Teks Utama */
+    --text-light: #ffffff; /* Teks Ringan */
+    --border-radius: 12px;
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 8px 30px rgba(63, 81, 181, 0.1); /* Subtle, Primary-colored Shadow */
+    --header-bg: #ffffff; /* Header Light */
+    --header-text: #333333;
+    --code-bg: #1e1e1e; /* Background Kode gelap */
+    --code-text: #d4d4d4;
+    --link-hover: #303f9f;
+    --success-color: #4caf50;
+    --success-dark: #388e3c; /* Warna hijau yang lebih gelap untuk shadow */
+    --progress-end: #34d399; /* Hijau cerah untuk gradien (Tailwind Green 400) */
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+    --primary-color: #7986cb;
+    --secondary-color: #5c6bc0;
+    --bg-page: #1f1f1f;
+    --bg-card: #2e2e2e;
+    --text-main: #f0f0f0;
+    --header-bg: #2e2e2e;
+    --header-text: #f0f0f0;
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
+    --code-bg: #0d1117;
+    --code-text: #c9d1d9;
+    --link-hover: #aab5e7;
+    --success-color: #66bb6a; /* Hijau yang lebih cerah di dark mode */
+    --success-dark: #43a047;
+    --progress-end: #4ade80;
+}
+
+/* Keyframes untuk efek kilat saat badge muncul */
+@keyframes flash-success {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    color: var(--text-main);
+    background-color: var(--bg-page);
+    transition: background-color 0.4s, color 0.4s;
+    /* PENTING: Mencegah horizontal scroll/overflow */
+    overflow-x: hidden; 
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+.container {
+    /* Menggunakan lebar fluid 90% */
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ==================================== */
+/* 2. HEADER DAN NAVIGASI (ELEGANT) */
+/* ==================================== */
+.header {
+    background-color: var(--bg-card); /* White/Card BG in light mode */
+    color: var(--header-text);
+    padding: 1rem 0;
+    box-shadow: var(--shadow-sm);
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    transition: color 0.3s;
+    line-height: 1; 
+}
+
+/* Navigasi Utama */
+nav {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: center; 
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Hapus kelas desktop/mobile only di sini. Atur di media query */
+.mobile-action-bar {
+    display: none; /* Default: Sembunyikan di desktop */
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; 
+    transition: all 0.3s ease-in-out; 
+    margin: 0;
+}
+
+.nav-menu li a {
+    color: var(--text-main);
+    padding: 0.75rem 1rem; 
+    display: block;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.nav-menu a:hover {
+    background-color: rgba(63, 81, 181, 0.1);
+    color: var(--primary-color);
+}
+
+/* Active Navigation Style */
+.nav-menu li a.active-link {
+    color: var(--text-light);
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(63, 81, 181, 0.3);
+    font-weight: 600;
+}
+
+.nav-menu li a.active-link:hover {
+    background-color: var(--link-hover);
+    color: var(--text-light);
+}
+
+
+/* Submenu Styling */
+.has-submenu {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--bg-card);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    list-style: none;
+    min-width: 220px;
+    z-index: 1000;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    padding: 0.5rem 0;
+}
+
+.dark-mode .submenu {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.has-submenu:hover > .submenu {
+    display: block;
+}
+
+.submenu li a {
+    padding: 0.75rem 1rem;
+    color: var(--text-main);
+    white-space: nowrap;
+    display: block;
+}
+
+.submenu li a:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border-radius: 0;
+}
+
+/* Mode Toggle Button (Desktop/Mobile) */
+.mode-toggle-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--secondary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.7rem;
+    border-radius: 50%;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    box-shadow: var(--shadow-sm);
+    line-height: 1;
+}
+
+.dark-mode .mode-toggle-btn {
+    background-color: var(--bg-card);
+    color: var(--primary-color);
+}
+
+.mode-toggle-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+/* User Action Button (Login/Profile) */
+.user-action-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Memastikan tombol cukup besar untuk disentuh di semua perangkat */
+    min-height: 44px; 
+}
+
+.user-action-btn:hover {
+    background-color: var(--link-hover);
+    box-shadow: 0 4px 15px rgba(63, 81, 181, 0.4);
+}
+
+/* Search Bar Styling */
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    padding: 0.7rem 1rem;
+    padding-right: 2.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    width: 180px; 
+    transition: width 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.dark-mode .search-input {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--bg-page);
+}
+
+.search-input:focus {
+    width: 250px;
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(63, 81, 181, 0.3);
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    pointer-events: none;
+}
+
+
+/* ==================================== */
+/* 3. MAIN CONTENT & TYPOGRAPHY */
+/* ==================================== */
+.main-content {
+    padding: 4rem 0 3rem;
+    min-height: 80vh;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+
+.dark-mode .card {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-left: 5px solid var(--secondary-color);
+    padding-left: 15px;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+p, ul, ol {
+    margin-bottom: 1.5rem;
+    /* PENTING: Memastikan teks panjang pecah di layar kecil */
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+/* ==================================== */
+/* 3.1. HOME PAGE SPECIFIC STYLES */
+/* ==================================== */
+
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--link-hover));
+    color: var(--text-light);
+    padding: 5rem 0;
+    margin-bottom: 3rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(63, 81, 181, 0.5);
+}
+
+.hero-section h1 {
+    color: var(--text-light);
+    font-size: 3.5rem;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 1rem auto 2rem;
+    line-height: 1.5;
+}
+
+/* Progress Bar Styling */
+.progress-bar-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2); 
+    border-radius: 8px; 
+    margin-top: 1rem;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); 
+    height: 18px; 
+}
+
+.dark-mode .progress-bar-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar {
+    height: 100%; 
+    background: linear-gradient(90deg, var(--success-dark), var(--progress-end));
+    width: 0%;
+    transition: width 0.8s ease-in-out; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.7); 
+}
+
+.modules-grid {
+    display: grid;
+    /* Menggunakan repeat(auto-fit, minmax) untuk adaptasi otomatis di semua ukuran */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.module-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    background-color: var(--bg-card);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(63, 81, 181, 0.15);
+}
+
+.module-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.module-card h3 {
+    margin-top: 0;
+}
+
+.module-link {
+    margin-top: auto; 
+    padding: 0.5rem 1rem; 
+    font-size: 0.9rem;
+    width: 100%; 
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(63, 81, 181, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    /* Target sentuh yang memadai */
+    min-height: 44px; 
+    line-height: 30px; 
+}
+
+.module-link:hover {
+    background-color: var(--link-hover);
+    box-shadow: 6px 15px rgba(63, 81, 181, 0.4);
+}
+
+/* === STYLE BADGE "SELESAI" === */
+.completion-badge {
+    position: absolute;
+    top: 15px; 
+    right: 15px; 
+    background: var(--success-color);
+    color: var(--text-light);
+    display: inline-block; 
+    padding: 0.4rem 1rem; 
+    border-radius: 50px; 
+    font-size: 0.9rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.4); 
+    border: 2px solid var(--text-light); 
+    transform: scale(1.0);
+    transition: all 0.2s ease-out;
+    background-image: none;
+    animation: none;
+}
+
+.completion-badge:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.5);
+}
+
+.completion-badge i {
+    display: none; 
+}
+
+
+/* Hapus Keyframes yang tidak lagi digunakan */
+@keyframes flash-success {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+/* ==================================== */
+/* 3.2. PROFILE CARD (ABOUT PAGE) STYLE */
+/* ==================================== */
+
+.profile-list-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+    margin-top: 1rem;
+}
+
+.profile-card-about {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-page); 
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    width: 100%; 
+}
+
+.dark-mode .profile-card-about {
+     background-color: var(--bg-card); 
+}
+
+.profile-card-about:hover {
+    box-shadow: 0 10px 30px rgba(63, 81, 181, 0.2);
+    transform: translateY(-2px);
+}
+
+.profile-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(63, 81, 181, 0.4);
+    transition: transform 0.3s;
+}
+
+.profile-card-about:hover .profile-avatar img {
+    transform: scale(1.05);
+}
+
+.profile-details h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.profile-badge {
+    color: gold;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.profile-details p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+
+/* ==================================== */
+/* 4. CODE BLOCK & INTERACTIVITY */
+/* ==================================== */
+.btn-primary, .code-toggle {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(63, 81, 181, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    /* Target sentuh yang memadai */
+    min-height: 44px; 
+}
+
+.btn-primary:hover, .code-toggle:hover {
+    background-color: var(--link-hover);
+    box-shadow: 0 6px 15px rgba(63, 81, 181, 0.4);
+}
+
+.code-block {
+    background-color: var(--code-bg);
+    color: var(--code-text);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    /* Memastikan kode dapat di-scroll horizontal tanpa mengganggu layout */
+    overflow-x: auto; 
+    font-family: 'Consolas', 'Monospace', monospace;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.hidden {
+    display: none;
+}
+
+.highlight {
+    background-color: #ffeb3b; /* Kuning terang */
+    color: var(--text-main);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* ==================================== */
+/* 5. FORM DAN VIDEO & LOGIN/PROFILE */
+/* ==================================== */
+
+/* Penataan Peta */
+.map-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.map-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; 
+}
+
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(63, 81, 181, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(63, 81, 181, 0.3);
+    /* Target sentuh yang memadai */
+    min-height: 44px; 
+}
+
+.btn-submit:hover {
+    background-color: var(--link-hover);
+}
+
+#form-status {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 600;
+    display: none;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: var(--border-radius);
+    margin-top: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Profile specific styles */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-info img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 5px solid var(--primary-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.profile-section {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.dark-mode .profile-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- LOGIN/REGISTER STYLES --- */
+.login-card-custom {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.login-card-custom h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Social Login Buttons */
+.social-login-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.social-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Target sentuh yang memadai */
+    min-height: 44px; 
+}
+
+.social-login-btn i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.google-btn {
+    background-color: #db4437; /* Google Red */
+    color: white;
+}
+
+.google-btn:hover {
+    background-color: #c33d32;
+    box-shadow: 0 4px 15px rgba(219, 68, 55, 0.5);
+}
+
+.github-btn {
+    background-color: #333; /* GitHub Black/Dark */
+    color: white;
+}
+
+.dark-mode .github-btn {
+    background-color: #fff; /* White in dark mode */
+    color: #333;
+}
+
+.github-btn:hover {
+    background-color: #000;
+    box-shadow: 0 4px 15px rgba(51, 51, 51, 0.5);
+}
+
+.dark-mode .github-btn:hover {
+    background-color: #eee;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Divider Style */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--secondary-color);
+    margin: 1.5rem 0;
+    font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .divider::before,
+.dark-mode .divider::after {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.divider:not(:empty)::before {
+    margin-right: .5em;
+}
+
+.divider:not(:empty)::after {
+    margin-left: .5em;
+}
+
+/* Register Link */
+.register-link-text {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.register-link {
+    font-weight: 600;
+}
+
+/* Demo Info */
+.demo-info-text {
+    margin-top: 1rem !important;
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+}
+/* --- END LOGIN/REGISTER STYLES --- */
+
+
+/* --- CHAPTER NAVIGATION STYLES (Simple & Elegan V2) --- */
+.chapter-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Menggunakan center untuk keselarasan vertikal */
+    margin-top: 1.5rem; /* Disesuaikan agar pas di dalam kartu */
+    padding-top: 1.5rem; /* Kurangi padding atas */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Kembalikan border atas yang tipis */
+    gap: 1rem; /* Kurangi jarak antar tombol */
+}
+.dark-mode .chapter-nav-container {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chapter-nav-btn {
+    /* Kembali ke gaya tombol yang lebih tipis dan fleksibel */
+    flex-grow: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.8rem 1.2rem; 
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    text-transform: none; 
+    letter-spacing: normal;
+    min-height: 60px; /* Tinggi yang lebih kecil */
+    box-shadow: none; /* Hilangkan shadow yang berlebihan */
+}
+
+.chapter-nav-btn:hover {
+    transform: translateY(-2px); /* Efek melayang lebih kecil */
+}
+
+.chapter-nav-btn strong {
+    /* Teks judul bab */
+    display: block;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.chapter-nav-btn span {
+    /* Teks panduan (Bab Selanjutnya/Sebelumnya) */
+    display: block;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+}
+
+
+/* Style untuk Ikon (kiri dan kanan) */
+.chapter-nav-btn i {
+    font-size: 1.5rem; /* Ikon lebih kecil */
+    line-height: 1;
+}
+
+/* Styling untuk Previous Button */
+.prev-btn {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+    justify-content: flex-start;
+    padding-right: 20px;
+}
+.prev-btn .text-content {
+    margin-left: 10px;
+}
+
+.prev-btn:hover {
+    background-color: var(--bg-card); /* Lebih terang saat hover */
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(63, 81, 181, 0.15);
+}
+
+.dark-mode .prev-btn {
+    background-color: var(--bg-card);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+}
+.dark-mode .prev-btn:hover {
+    background-color: #383838;
+}
+.dark-mode .prev-btn span {
+    color: var(--secondary-color);
+}
+
+
+/* Styling untuk Next Button */
+.next-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    box-shadow: var(--shadow-sm);
+    text-align: right;
+    justify-content: flex-end;
+    padding-left: 20px;
+}
+.next-btn .text-content {
+    margin-right: 10px;
+}
+
+.next-btn strong {
+    color: var(--text-light);
+}
+.next-btn span {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.next-btn i {
+    color: var(--text-light);
+}
+
+.next-btn:hover {
+    background-color: var(--link-hover);
+    box-shadow: 0 4px 15px rgba(63, 81, 181, 0.5);
+}
+
+.chapter-nav-placeholder {
+    width: 50%; 
+    min-height: 60px;
+}
+
+/* Menyesuaikan grid untuk menampung ikon, panduan, dan judul */
+.chapter-nav-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+}
+
+.chapter-nav-btn .icon-wrapper {
+    flex-shrink: 0;
+}
+
+.chapter-nav-btn .text-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.prev-btn .text-content {
+    text-align: left;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.next-btn .text-content {
+    text-align: right;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+/* --- END CHAPTER NAVIGATION STYLES --- */
+
+
+/* ==================================== */
+/* 6. FOOTER */
+/* ==================================== */
+.footer {
+    background-color: var(--header-bg);
+    color: var(--text-main);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ==================================== */
+/* 7. MEDIA QUERIES (RESPONSIVENESS) */
+/* ==================================== */
+
+/* Tablet/Desktop Kecil (900px - 769px) */
+@media (max-width: 900px) {
+    /* PENYEMPURNAAN TABLET */
+    .nav-menu {
+        gap: 1rem; 
+    }
+    .nav-menu li a {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.95rem; 
+    }
+    
+    /* Batasi fokus search agar tidak meluap di tablet */
+    .search-input {
+        width: 160px; 
+    }
+
+    .search-input:focus {
+        width: 200px; 
+    }
+
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+    
+    .main-content {
+        padding: 3rem 0; 
+    }
+
+    .card {
+        padding: 2rem;
+    }
+    
+    /* Navigasi Bab di Tablet */
+    .chapter-nav-btn {
+        padding: 0.75rem 1rem;
+        min-height: 50px;
+        font-size: 0.9rem;
+    }
+
+    .chapter-nav-btn strong {
+        font-size: 0.95rem;
+    }
+    
+    .chapter-nav-btn i {
+        font-size: 1.3rem;
+    }
+    
+    .prev-btn .text-content {
+        margin-left: 5px;
+    }
+    .next-btn .text-content {
+        margin-right: 5px;
+    }
+}
+
+/* Mobile (768px dan di bawahnya) */
+@media (max-width: 768px) {
+    /* NAVIGASI MOBILE (HAMBURGER MENU) */
+    .nav-toggle {
+        display: flex;
+        z-index: 1001; 
+        order: 3; 
+    }
+
+    /* ********** PERUBAHAN DI SINI ********** */
+    /* Navigasi utama desktop */
+    nav {
+        display: none; 
+    }
+
+    .nav-actions {
+        display: none !important;
+    }
+
+    .mobile-action-bar {
+        display: flex !important;
+        align-items: center;
+        gap: 0.5rem;
+        order: 2; 
+    }
+    
+    /* Menu yang muncul dari hamburger */
+    .nav-menu {
+        display: flex; 
+        position: absolute;
+        top: 65px; 
+        right: 0;
+        width: 80%;
+        max-width: 300px;
+        height: 0;
+        flex-direction: column;
+        background-color: var(--header-bg);
+        overflow: hidden;
+        gap: 0;
+        padding: 0.5rem 0;
+        box-shadow: var(--shadow-lg);
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+        border: 1px solid rgba(0, 0, 0, 0.1); 
+        z-index: 100; 
+    }
+    
+    .nav-menu.active {
+        height: auto; 
+        max-height: 500px; 
+        padding: 0.5rem 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu li a {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 0;
+    }
+
+    .dark-mode .nav-menu li a {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .dark-mode .submenu {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .submenu li a {
+        padding-left: 2.5rem; 
+        border-bottom: none;
+    }
+
+    .has-submenu:hover > .submenu {
+        display: none; 
+    }
+
+    .submenu.active {
+        display: block; 
+    }
+    
+    /* TYPOGRAPHY DAN SECTION MOBILE */
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding-left: 10px;
+    }
+    
+    /* Memastikan elemen form dan tombol besar agar mudah disentuh */
+    .form-group input,
+    .form-group textarea,
+    .btn-submit {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .login-card-custom {
+        padding: 2rem 1.5rem;
+    }
+    
+    .profile-card-about {
+        /* PENTING: Tumpuk konten profile di layar kecil */
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .profile-details h3 {
+        justify-content: center;
+    }
+    
+    .profile-card-about:hover .profile-avatar img {
+        transform: none; 
+    }
+    
+    /* Navigasi Bab di Mobile */
+    .chapter-nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .chapter-nav-btn {
+        width: 100%;
+        min-height: 60px;
+        /* Menggunakan flex untuk layout horizontal di dalam kolom vertikal */
+        padding: 1rem;
+    }
+
+    .prev-btn .text-content {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .next-btn .text-content {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    
+    .chapter-nav-placeholder {
+        display: none;
+    }
+}
+
+/* Smartphone Kecil (480px dan di bawahnya) */
+@media (max-width: 480px) {
+    .container {
+        /* Memperluas container di layar sangat kecil untuk mengurangi margin kosong */
+        width: 95%;
+    }
+    .card {
+        padding: 1.5rem;
+    }
+    .hero-section {
+        padding: 3rem 1rem;
+        margin-bottom: 2rem;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .main-content {
+        padding: 2.5rem 0 2rem;
+    }
+    
+    .profile-info img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .social-login-btn {
+        /* Pastikan tombol social login tetap bagus dan tinggi */
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+}

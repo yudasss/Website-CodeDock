@@ -1,0 +1,176 @@
+<!--
+Nama file       : index.html
+Tanggal ngoding : 15 Desember 2025 (Pembaruan)
+Kelas           : TI-1A
+Kelompok        : 1 (Mandiri)
+Anggota         : [Nama Mahasiswa Placeholder]
+Deskripsi       : Halaman depan yang lebih elegan dengan Hero Section dan Module Showcase.
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Tutorial Web HTML, CSS, JS</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">CodeDock</a>
+            
+            <!-- Aksi untuk Mobile (Mode & Login) -->
+            <div class="mobile-action-bar">
+                <button id="mode-toggle-btn" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+
+            <nav>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Tentang</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Materi <i class="fas fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <!-- NEW: Menu Navigasi dengan Judul Baru -->
+                            <li><a href="materi/bab1.html">BAB 1 - PENDAHULUAN WEB DEVELOPMENT</a></li>
+                            <li><a href="materi/bab2.html">BAB 2 - FONDASI HTML5</a></li>
+                            <li><a href="materi/bab3.html">BAB 3 - STYLING MODERN DENGAN TAILWIND CSS</a></li>
+                            <li><a href="materi/bab4.html">BAB 4 - JAVASCRIPT ES6+: DASAR HINGGA INTERAKTIVITAS</a></li>
+                            <li><a href="materi/bab5.html">BAB 5 - INTEGRASI HTML5, TAILWIND CSS, JAVASCRIPT</a></li>
+                            <li><a href="materi/bab6.html">BAB 6 - BEST PRACTICES & TREN MODERN</a></li>
+                            <li><a href="materi/bab7.html">BAB 7 - PROYEK MINI</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Search, Mode, & User actions (untuk desktop) -->
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input-desktop" placeholder="Cari Konten..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button id="mode-toggle-btn-desktop" class="mode-toggle-btn" title="Toggle Mode Gelap/Terang"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="user-action-btn" id="user-action-link-desktop" title="Login ke Akun">
+                    <i class="fas fa-user-circle"></i> 
+                    <span class="user-action-text">Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" id="home-page">
+        <div class="container">
+            
+            <!-- 1. HERO SECTION (Agar tidak sepi) -->
+            <section class="hero-section">
+                <h1>Kuasai Dunia Web Development</h1>
+                <p>Panduan komprehensif dan sistematis untuk mempelajari dasar-dasar HTML, CSS, dan JavaScript. Mulai perjalanan coding Anda hari ini!</p>
+                <p id="progress-text" style="font-weight: 600;"></p>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <a href="materi/bab1.html" class="btn-primary" style="margin-top: 2rem;">
+                    Mulai Belajar Sekarang
+                </a>
+                <!-- Tombol Reset Progres (tersembunyi jika progres 0) -->
+                <button id="reset-progress-btn" class="btn-primary" style="margin-top: 1rem; background-color: #dc3545; display: none;">
+                    <i class="fas fa-undo"></i> Reset Progres
+                </button>
+            </section>
+            
+            <!-- 2. MODULE SHOWCASE (Agar tidak sepi) -->
+            <section>
+                <h2 style="text-align: center; border: none; margin-top: 0;">Jalur Pembelajaran Utama</h2>
+                <div class="modules-grid">
+                    
+                    <!-- Bab 1: PENDAHULUAN WEB DEVELOPMENT -->
+                    <div class="module-card" id="module-bab1">
+                        <i class="fas fa-book" style="color: var(--primary-color);"></i>
+                        <h3>BAB 1 - PENDAHULUAN WEB DEVELOPMENT</h3>
+                        <p>Memahami arsitektur web, peran browser, client-side vs server-side, dan alat kerja dasar.</p>
+                        <a href="materi/bab1.html" class="module-link">Lanjut Bab 1</a>
+                    </div>
+
+                    <!-- Bab 2: FONDASI HTML5 -->
+                    <div class="module-card" id="module-bab2">
+                        <i class="fab fa-html5" style="color: #e34c26;"></i>
+                        <h3>BAB 2 - FONDASI HTML5</h3>
+                        <p>Struktur dokumen, elemen semantik (header, section, footer), form dasar, dan media element.</p>
+                        <a href="materi/bab2.html" class="module-link">Lanjut Bab 2</a>
+                    </div>
+
+                    <!-- Bab 3: STYLING MODERN DENGAN TAILWIND CSS -->
+                    <div class="module-card" id="module-bab3">
+                        <i class="fas fa-paint-roller" style="color: #06b6d4;"></i>
+                        <h3>BAB 3 - STYLING MODERN DENGAN TAILWIND CSS</h3>
+                        <p>Konsep utilitas-first, dasar-dasar sintaks Tailwind, responsive design, dan custom utilities.</p>
+                        <a href="materi/bab3.html" class="module-link">Lanjut Bab 3</a>
+                    </div>
+
+                    <!-- Bab 4: JAVASCRIPT ES6+: DASAR HINGGA INTERAKTIVITAS -->
+                    <div class="module-card" id="module-bab4">
+                        <i class="fab fa-js-square" style="color: #f7df1e;"></i>
+                        <h3>BAB 4 - JAVASCRIPT ES6+: DASAR HINGGA INTERAKTIVITAS</h3>
+                        <p>Variabel, fungsi (arrow), DOM manipulation, Event Handling, dan penggunaan modern ES6+.</p>
+                        <a href="materi/bab4.html" class="module-link">Lanjut Bab 4</a>
+                    </div>
+
+                    <!-- Bab 5: INTEGRASI HTML5, TAILWIND CSS, JAVASCRIPT -->
+                    <div class="module-card" id="module-bab5">
+                        <i class="fas fa-puzzle-piece" style="color: var(--secondary-color);"></i>
+                        <h3>BAB 5 - INTEGRASI HTML5, TAILWIND CSS, JAVASCRIPT</h3>
+                        <p>Menerapkan styling kompleks (Tailwind) pada struktur (HTML) dan memberikan logika (JS).</p>
+                        <a href="materi/bab5.html" class="module-link">Lanjut Bab 5</a>
+                    </div>
+
+                    <!-- Bab 6: BEST PRACTICES & TREN MODERN -->
+                    <div class="module-card" id="module-bab6">
+                        <i class="fas fa-code-branch" style="color: gold;"></i>
+                        <h3>BAB 6 - BEST PRACTICES & TREN MODERN</h3>
+                        <p>Accessibility (A11y), SEO dasar, performa web, dan pengenalan ke framework modern (React/Vue).</p>
+                        <a href="materi/bab6.html" class="module-link">Lanjut Bab 6</a>
+                    </div>
+
+                    <!-- Bab 7: PROYEK MINI -->
+                    <div class="module-card" id="module-bab7">
+                        <i class="fas fa-tasks" style="color: #f14e32;"></i>
+                        <h3>BAB 7 - PROYEK MINI</h3>
+                        <p>Membangun aplikasi fungsional sederhana untuk menguji semua skill yang telah dipelajari dalam 6 bab terakhir.</p>
+                        <a href="materi/bab7.html" class="module-link">Lanjut Bab 7</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. GENERAL DESCRIPTION (Moved from original content) -->
+            <div class="card" style="margin-top: 3rem;">
+                <h2>Tentang Proyek CodeDock</h2>
+                <p>Website ini dirancang sebagai panduan komprehensif untuk mempelajari dasar-dasar Pemrograman Web, mencakup tiga teknologi inti: HTML, CSS, dan JavaScript.</p>
+                <p>Tutorial ini disusun secara sistematis per bab dan sub-bab, memastikan Anda dapat membangun fondasi yang kuat dalam pengembangan web statis dan responsif.</p>
+                <p style="margin-top: 1rem; text-align: right; font-style: italic;">— Proyek UAS Pemrograman Web 1 | Kelompok 3</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CodeDock | Proyek UAS Pemrograman Web 1</p>
+        </div>
+    </footer>
+
+</body>
+</html>
